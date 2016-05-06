@@ -2,6 +2,7 @@ redablooms: scalable counting Bloom filters Redis Module
 ===
 
 This is a port of the [dablooms](https://github.com/bitly/dablooms) library - a scalable, counting, Bloom filter by Justin Hines at Bitly - to a Redis module.
+
 For background, refer to the original [README](https://github.com/bitly/dablooms/blob/master/README.md).
 
 redablooms provides all of dabloom's functionality, but stores the data structures in Redis Strings instead of files.
@@ -21,6 +22,7 @@ Scaling Counting Bloom filter API
 ### `SBF.ADD key elem id [elem id ...]`
 
 Adds one or more elements and their ids to the filter in `key`.
+
 If `key` doesn't exist, the filter is created with the default capacity (100000) and error rate (0.05).  
 Elements' `id`s are always integers, but can be provided in one of the following ways:
 
@@ -50,6 +52,7 @@ Checks if `elem` exists in `key`.
 ###  `SBF.INIT key capacity error-rate`
 
 Initializes a new scaling counting Bloom filter.
+
 Use this to specify other-than-the-default capacity and error rate for the filter.
 
 **Reply:** String, "OK".
@@ -66,6 +69,7 @@ Counting Bloom filter API
 ### `CBF.ADD key elem [elem ...]`
 
 Adds one or more elements the filter in `key`.
+
 If the key doesn't exist, the filter is created with the default capacity (100000) and error rate (0.05).  
 
 **Reply:** Integer, the count of elements in the filter.
@@ -85,6 +89,7 @@ Checks if `elem` exists in `key`.
 ###  `CBF.INIT key capacity error-rate`
 
 Initializes a new counting Bloom filter.
+
 Use this to specify other-than-the-default capacity and error rate for the filter.
 
 **Reply:** String, "OK".
@@ -110,4 +115,5 @@ License
 ---
 
 redablooms is licensed under AGPLv3 - see [LICENSE](LICENSE).
+
 deblooms is licensed under a very liberal license - see [LICENSE-dablooms](LICENSE-dablooms).
