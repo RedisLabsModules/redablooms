@@ -604,7 +604,10 @@ scaling_bloom_t *new_scaling_bloom(unsigned int capacity, double error_rate,
     free_scaling_bloom(bloom);
     return NULL;
   }
-
+  
+  cur_bloom->header->id = 0;
+  cur_bloom->header->count = 0;
+  
   return bloom;
 }
 
