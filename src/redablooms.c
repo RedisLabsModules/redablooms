@@ -172,6 +172,7 @@ bitmap_t *new_bitmap(RedisModuleKey *key, size_t bytes) {
   return bitmap;
 }
 
+/* increments the four bit counter */
 int bitmap_increment(bitmap_t *bitmap, unsigned int index, long offset) {
   long access = index / 2 + offset;
   uint8_t temp;
@@ -193,7 +194,7 @@ int bitmap_increment(bitmap_t *bitmap, unsigned int index, long offset) {
   return 0;
 }
 
-/* increments the four bit counter */
+/* decrements the four bit counter */
 int bitmap_decrement(bitmap_t *bitmap, unsigned int index, long offset) {
   long access = index / 2 + offset;
   uint8_t temp;
@@ -216,7 +217,7 @@ int bitmap_decrement(bitmap_t *bitmap, unsigned int index, long offset) {
   return 0;
 }
 
-/* decrements the four bit counter */
+/* checks the four bit counter */
 int bitmap_check(bitmap_t *bitmap, unsigned int index, long offset) {
   long access = index / 2 + offset;
   if (index % 2 != 0) {
