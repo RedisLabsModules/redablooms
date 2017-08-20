@@ -1,3 +1,6 @@
+Update: this project has been suspended and superceded by http://rebloom.io
+===
+
 redablooms: scalable counting Bloom filters Redis Module
 ===
 
